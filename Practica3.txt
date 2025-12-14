@@ -1,0 +1,169 @@
+Tema 3 – Práctica
+El guion de prácticas debe resolverse sobre un proyecto denominado practica3_[nombre].
+Deberá entregarse en un comprimido en un fichero .zip con el proyecto al completo.
+1. (2) Al hilo de la práctica anterior, crea una clase Personaje que contenga los siguientes
+atributos y métodos.
+• Atributos
+o Una cadena de caracteres nombre que represente el nombre del
+Personaje.
+o Un entero pv que almacene los puntos de vida del Personaje.
+o Un entero atq que almacene los puntos de ataque del Personaje.
+o Un entero def que almacene los puntos de defensa del Personaje.
+o Un entero nivel que represente el progreso del Personaje.
+• Métodos
+o Getters y setters para todos los atributos.
+o En los setters de los atributos, ten en cuenta las siguientes restricciones:
+▪ El nombre no puede estar vacío, tener menos de dos caracteres o
+contener la cadena “GM”.
+▪ Ninguno de los atributos básicos puede ser inferior a 0.
+▪ La suma de los atributos básicos debe ser en todo momento
+inferior a 100.
+▪ El nivel no puede ser inferior a 1 ni superior a 100.
+o Un método beberPocion(int pocion) que sume la cantidad recibida por
+parámetros a los puntos de vida del Personaje siempre que éste tenga 30
+puntos de vida o menos.
+o Un método inspirar(int cantidad, String tipo) que aumente el ataque o
+la defensa una cantidad pasada por parámetros. El atributo a aumentar
+dependerá del valor de tipo.
+o Un método subirNivel() que incremente aleatoriamente uno de los tres
+atributos básicos del Personaje así como su nivel en una unidad.
+o Un método estaMuerto() que compruebe si el personaje está muerto
+(verificando que sus puntos de vida son 0 o menos) y devuelva true si es
+así.
+1
+Programación 1º DAM Curso 25/26
+2. (2) También deberá recrearse el nivel tal como se planteó en la práctica anterior,
+renombrado a Área y con el siguiente listado de atributos y métodos:
+• Atributos
+o Una cadena de caracteres nombre que almacene el nombre del Área.
+o Una cadena de caracteres bioma que almacene el bioma del Área.
+o Un entero nivel que represente el nivel de dificultad del área.
+• Métodos
+o Getters para todos los atributos y setters para todos menos el nivel.
+o En los setters de los atributos, ten en cuenta las siguientes restricciones:
+▪ El nombre del Área no puede estar vacío ni contener espacios.
+▪ El valor del bioma tiene que contener uno de estos valores para
+darse por válido: Pradera, Jungla, Desierto, Montaña, Mazmorra.
+Respeta las mayúsculas donde corresponda
+o Un método asignarNivel() que, dependiendo del valor del bioma, tenga
+los siguientes rangos:
+▪ La Pradera tiene un nivel entre 1 y 10.
+▪ La Jungla tiene un nivel entre 11 y 30.
+▪ El Desierto tiene un nivel entre 31 y 60.
+▪ La Montaña tiene un nivel entre 61 y 90.
+▪ La Mazmorra tiene un nivel entre 91 y 105.
+o Un método generarPocion() que, dependiendo del bioma, genere una
+poción con los efectos descritos a continuación. Ten en cuenta que el
+método devuelve el valor de la poción de la poción generada:
+▪ En la Pradera, las pociones siempre devuelven 15 puntos de vida.
+▪ En la Jungla, las pociones devuelven un valor aleatorio entre 15
+y 25 puntos de vida.
+▪ En el Desierto, las pociones devuelven un valor aleatorio entre 1
+y 30 puntos de vida.
+▪ En la Montaña, las pociones devuelven siempre 30 puntos de
+vida.
+▪ En la Mazmorra, las pociones tienen un 20% de probabilidades
+de restar 10 puntos de vida y un 80% de probabilidades de
+devolver 20 puntos de vida.
+2
+Programación 1º DAM Curso 25/26
+3. (2) Escribe una clase Trampa que represente los posibles obstáculos que puede
+encontrarse un Personaje en su travesía por las diferentes Áreas. Toda trampa tiene las
+siguientes características:
+• Atributos
+o Una cadena de caracteres tipo que representa la categoría a la que
+pertenece la trampa.
+o Un entero perjuicio que almacene el valor con el que afectará a
+determinadas características.
+o Un decimal fracaso que contenga la posibilidad de que la trampa no
+funcione correctamente.
+• Métodos
+o Getter y setter para todos los atributos.
+o Para los setters de los atributos, ten en cuenta las siguientes
+restricciones:
+▪ Los tipos de Trampa son los siguientes: Pinchos, Brea,
+Serpientes.
+▪ El perjuicio debe contener un valor entre 5 y 20.
+▪ La probabilidad de fracaso de la Trampa se representa como un
+porcentaje entre 0.0% y 75.0%.
+o Un método activaTrampa() que obtenga un número aleatorio y, si éste
+es menor que el porcentaje de fracaso de la trampa, devuelva el valor del
+perjuicio. En caso contrario, devolverá 0.
+4. (1,5) Escribe una clase Combate que permita representar el combate entre dos
+Personajes. Para ello, reutiliza la implementación realizada en la práctica anterior
+simplificada con solo un golpe por combatiente. Considera la clase tiene los siguientes
+elementos:
+• Atributos
+o Un Personaje c1 que represente al primer combatiente.
+o Un Personaje c2 que represente al segundo combatiente.
+• Métodos
+o Un método inicializaC1(String nombre, int nivel, int pv, int atq, int def)
+que de un valor inicial a los atributos de c1 utilizando sus setters.
+o Un método inicializaC2(String nombre, int nivel, int pv, int atq, int def)
+que repita lo anterior con c2.
+3
+Programación 1º DAM Curso 25/26
+o Un método combatir() que ponga en marcha el bucle de combate hasta
+que uno de los dos Personajes caiga muerto. Modifica la implementación
+anterior para que golpeé primero el Personaje con el mayor nivel.
+o Un método imprimirGanador() que anuncie el ganador del combate.
+Este método debe ejecutarse como parte del método combatir().
+5. (1) Escribe constructores por defecto para cada una de las clases implementadas hasta
+ahora:
+• El constructor de Personaje pondrá todos los valores enteros a 0 y la cadena de
+caracteres se inicializará con la cadena vacía.
+• El constructor de Área pondrá el nombre a “???”, el bioma a “Pradera” y el
+nivel a 1.
+• El constructor de Trampa pondrá el tipo a cadena vacía y los valores numéricos
+a 0.
+• El constructor de Combate llamará a los constructores por defecto de cada
+Personaje.
+4
+Programación 1º DAM Curso 25/26
+6. (1,5) Realiza las siguientes modificaciones a las clases implementadas:
+• Personaje
+o Método caerTrampa(Trampa t): se comprueba inicialmente si la trampa
+t se activa, y si es así, se incurre en los siguientes efectos dependiendo
+del tipo de la trampa, anunciando los mensajes correspondientes por
+pantalla:
+▪ Pinchos: “Estacas afiladas salen de las superficies cercanas y
+atraviesan a [nombre Personaje] por [perjuicio Trampa] puntos
+de daño”, reduciendo la cantidad establecida de los pv del
+Personaje.
+▪ Brea: “Aceite viscoso cae de pronto sobre [nombre Personaje],
+impidiéndole moverse con libertad.” Se reduce [perjuicio
+Trampa] puntos el atributo def del Personaje.
+▪ Serpientes: “Un nido de víboras y culebras aparece frente a
+[nombre Personaje]. La visión es tan terrorífica que pierde las
+ganas de continuar.” Se reduce [perjuicio Trampa] puntos el
+atributo atq del Personaje.
+▪ Si la trampa no se activa, se anunciará por pantalla
+“Afortunadamente, ¡[nombre Personaje] escapó indemne!”.
+• Área
+o Añade un nuevo atributo trampa de tipo Trampa.
+o Método generaTrampa(String t, int p, double f) que inicialice el atributo
+anterior. Además, ten en cuenta las siguientes restricciones según el
+bioma del Área:
+▪ En las Praderas y Montañas no es necesario modificar los
+parámetros.
+▪ En las Junglas, las trampas de Serpientes tienen un 10%
+adicional de probabilidades de activarse.
+▪ En los Desiertos, las trampas de brea tienen un 15% adicional de
+probabilidades de activarse.
+▪ En las Mazmorras, las trampas de Pinchos causan 5 puntos
+adicionales de daño.
+• Combate
+o Durante cada Combate, hay una Trampa oculta. Esta trampa tiene un 5%
+de probabilidades de interferir en el combate durante el turno de uno de
+5
+Programación 1º DAM Curso 25/26
+los Personajes. El tipo, perjuicio y fracaso de la Trampa son
+completamente aleatorios (dentro de sus valores permitidos). Si la
+Trampa se activa, el Personaje durante cuyo turno se ha activado sufrirá
+su efecto; sin embargo, si la trampa fracasa, el personaje se inspira el
+atributo correspondiente según el valor del perjuicio. Por ejemplo:
+▪ Interfiere una trampa de Brea durante el turno de c1. C1 ve
+decrementado su atributo def la cantidad de perjuicio
+correspondiente siempre que la trampa se haya activado (% de
+fracaso); en caso contrario, el atributo def de C1 incrementa en
+tantos puntos como perjuicio tenga la trampa.
