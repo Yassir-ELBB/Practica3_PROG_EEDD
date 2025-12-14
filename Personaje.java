@@ -1,14 +1,27 @@
 package Ejercicio1;
 
 import Ejercicio3.trampa;
-
 import java.util.Random;
+
+/**
+ * Clase Personajes
+ * En esta clase se usan los atributos de Sting nombre, pv (Puntos de Vida), atq (Puntos de Ataque), def (Puntos de Defensa), nivel (Puntos de Nivel)
+ * para la creación y definición de un personaje.
+ * @author Yassir El Badri Benjelloun
+ * @version 1.0
+ */
+
+
 public class Personaje {
     private String nombre;
     private int pv;
     private int atq;
     private int def;
     private int nivel;
+
+    /**
+     * Constructor por defecto que pone todos los valores a 0 o vacío
+     */
 
     public Personaje(){
         pv = 0;
@@ -19,26 +32,56 @@ public class Personaje {
     }
 
 
+    /**
+     * Gueter donde su función es devolver el nombre del personaje
+     * @return nombre
+     */
 
     public String getNombre(){
         return nombre;
     }
 
+    /**
+     * Gueter donde su función es devolver los pv del personaje
+     * @return nombre
+     */
+
     public int getpv(){
         return pv;
     }
+
+    /**
+     * Gueter donde su función es devolver el atq del personaje
+     * @return nombre
+     */
 
     public int getAtq(){
         return atq;
     }
 
+    /**
+     * Gueter donde su función es devolver la def del personaje
+     * @return nombre
+     */
+
     public int getdef(){
         return def;
     }
 
+    /**
+     * Gueter donde su función es devolver el nivel del personaje
+     * @return nombre
+     */
+
     public int getNivel(){
         return nivel;
     }
+
+    /**
+     * Seter que se encarga de establecer restricciones a la hora de establecer en nombre del personaje.
+     * Restricciones: El nombre no puede estar vacio, No permite que el nombre contenga los caracteres GM ni tampoco el numero 2.
+     * @param n
+     */
 
     public void setNombre(String n){
         if( n.equals("") || n.equals("GM") || n.equals("2") ){
@@ -46,6 +89,11 @@ public class Personaje {
         }else System.out.println("Hola: "+n+", Bienvenido");
     }
 
+    /**
+     * Seter encargado de establecer restricciones a la hora de indicar los Puntos de Vida.
+     * Restricciones: Puntos de vida no pueden ser inferior a 0.
+     * @param puntosVida
+     */
 
     public void setpv(int puntosVida){
         if (puntosVida < 0){
@@ -57,6 +105,12 @@ public class Personaje {
 
     }
 
+    /**
+     * Seter encargado de establecer restricciones a la hora de indicar los Puntos de Ataque.
+     * Restricciones: Puntos Atq no puede ser menor a 0.
+     * @param puntosAtq
+     */
+
     public void setatq(int puntosAtq){
         if(puntosAtq < 0){
             System.err.println("Error. EL atque no puede ser menor que cero");
@@ -66,6 +120,12 @@ public class Personaje {
         }
 
     }
+
+    /**
+     * Seter encargado de establecer restricciones a la hora de indicar los Puntos de Defensa.
+     * Restricciones: Puntos de Def no puede ser menos a 0.
+     * @param puntosDef
+     */
 
     public void setdef(int puntosDef){
         if(puntosDef < 0){
@@ -77,6 +137,12 @@ public class Personaje {
 
     }
 
+    /**
+     * Seter encargado de establecer restricciones a la hora de indicar los Puntos de Nivel.
+     * Restricciones: Puntos de Nivel no puede ser menor a 1 ni mayor a 100.
+     * @param puntosNivel
+     */
+
     public void nivel(int puntosNivel){
         if(puntosNivel < 1 || nivel > 100){
             System.err.println("Error. El nivel no es correcto");
@@ -86,6 +152,11 @@ public class Personaje {
         }
     }
 
+    /**
+     * Método beberPocion que al ejecutarse este incrementa los putntos de vida del personaje.
+     * Los puntos de vida extra aumentados dependen del valor de Pocion (int pocion).
+     * @param pocion
+     */
 
     public void beberPocion(int pocion){
        if(pv < 30){
@@ -93,6 +164,13 @@ public class Personaje {
            System.out.println("Has bebido la pocion, ahora tienes: "+ pv +" puntos de vida");
        }else System.err.println("No puedes beber la pocion ya que tu vida es mayor de 30 puntos");
     }
+
+    /**
+     * Método Inspirar que al ejecutarse incrementa el atq (Puntos de Ataque) o def (Puntos de Defensa) en función de
+     * lo que se ha puesto en el atributo de tipo (String tipo) y una cantida concreta indicada en el atributo cantidad (int cantidad)
+     * @param cantidad
+     * @param tipo
+     */
 
     public void inspirar(int cantidad, String tipo) {
         if (tipo == "atq") {
@@ -105,6 +183,10 @@ public class Personaje {
             System.err.println("Error. No es correcto, elija entre atq o def");
         }
     }
+
+    /**
+     * Método subirnivel que al ejecutarse este sube un punto extra a los atributos de pv, atq o def de forma aleatoria.
+     */
 
     public void subirnivel(){
         Random r = new Random();
@@ -124,6 +206,10 @@ public class Personaje {
 
     }
 
+    /**
+     * Método estaMuerto que al ejecutarse indica si el personaje esta vivo o muerto en funcion de su pv (Puntos de Vida)
+     */
+
     public void estaMuerto() {
             if(pv < 0){
                 System.out.println("Analizando tu vida se determina que estas muerto");
@@ -131,6 +217,14 @@ public class Personaje {
 
     }
 
+    /**
+     *Método caerTrampa que al ejecutarse junto a la clase trampa, al ejecutarse el método activarTrampa de la clase trampa
+     * determina si el jugador cae en ella o no, todo de forma aleatoria.
+     * Este método tambien contiene el tipo (String Tipo) que indica el tipo de trampa y Quita (int Quita) que indica
+     * la cantidad de vida que se le resta a los puntos de vida del jugador mediante el perjuicio.
+     * @param t
+     * @see trampa
+     */
 
     public void caerTrampa(trampa t){
 
