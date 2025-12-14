@@ -7,7 +7,7 @@ import Ejercicio3.trampa;
  * En esta clase se crea la zona donde se va a desarrollar el juego donde se cuenta con un area de juego, un Bioma y un nivel
  * representados por los atributos de String area, String bioma y int nivel.
  * @author Yassir El Badri Benjelloun
- * @version 1
+ * @version 1.0
  */
 
 public class Area {
