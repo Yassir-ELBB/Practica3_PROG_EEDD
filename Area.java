@@ -1,11 +1,24 @@
 package Ejercicio2;
 import java.util.Random;
 import Ejercicio3.trampa;
+
+/**
+ * Clase Area
+ * En esta clase se crea la zona donde se va a desarrollar el juego donde se cuenta con un area de juego, un Bioma y un nivel
+ * representados por los atributos de String area, String bioma y int nivel.
+ * @author Yassir El Badri Benjelloun
+ * @version 1
+ */
+
 public class Area {
 
     private String area;
     private String bioma;
     private int nivel;
+
+    /**
+     *Costructor por defecto que pone valores por defecto como area a ??, bioma a pradera y nivel a 1.
+     */
 
     public Area(){
         area = "??";
@@ -14,25 +27,48 @@ public class Area {
     }
 
 
-
+    /**
+     * Gueter que devuelve el nivel del area.
+     * @return nivel
+     */
     public int getNivel() {
         return nivel;
     }
+
+    /**
+     * Gueter que devuelve el area.
+     * @return area
+     */
 
     public String getArea() {
         return area;
     }
 
+    /**
+     * Gueter que devuelve el nombre del bioma.
+     * @return bioma
+     */
+
     public String getBioma() {
         return bioma;
     }
 
+    /**
+     *Seter que establece restricciones a la hora de poner el nombre del Area
+     * Restricciones: El nombre no puede estar vacio ni tampoco tener espacios.
+     * @param ponerArea
+     */
 
     public void setArea(String ponerArea) {
-        if (ponerArea.equals("") || ponerArea.equals("_")) {
+        if (ponerArea.equals("") || ponerArea.equals(" ")) {
             System.err.println("Error. El nombre de Area no es correcto");
         } else System.out.println("Tu Area es : " + ponerArea);
     }
+
+    /**
+     * Seter que establece el tipo de Bioma entre las diferentes opciones: Pradera, jungla, Desierto, Montaña, Mazmorra
+     * @param ponerBioma
+     */
 
     public void setBioma(String ponerBioma) {
 
@@ -56,9 +92,12 @@ public class Area {
             default:
                 System.err.println("Por favor seleccione un bioma correcto");
         }
-
-
     }
+
+    /**
+     * Método asignarNivel encargado de asignar un nivel en funcion del tipo de bioma elejido.
+     * @param AsignadoNivel
+     */
 
     public void asignarNivel(String AsignadoNivel) {
         switch (AsignadoNivel) {
@@ -82,6 +121,17 @@ public class Area {
         }
 
     }
+
+    /**
+     * Método generarPcion que establece una subida en función del bioma.
+     * El bioma Pradera tiene una subida de 15 puntos de vida.
+     * El bioma Jungla sube una cantidad aleatoria entre 10 y 15 puntos de vida.
+     * El bioma Desierto sube una cantidad aleatoria entre 1 y 30 puntos de vida.
+     * El bioma Montaña sube una cantidad de 30 puntos de vida.
+     * El bioma Mazmorra da una probabilidad del 20% a que se resten 10 puntos de vida o 80% a que se aumenten 20.
+     * @param Pocionbioma
+     * @return subida
+     */
 
     public int generarPocion(String Pocionbioma) {
         int subida = 0;
@@ -107,7 +157,7 @@ public class Area {
                 int subida2 = 0;
                 Random randomsubida2 = new Random();
                 subida2 = randomsubida2.nextInt();
-                if (subida2 == 0.8) {
+                if (subida2 == 0.2) {
                     System.out.println("Se te restan 10 puntos de vida");
 
                 } else System.out.println("Felicidades se te aumenta la vida en un total de 20 puntos de vida");
@@ -118,11 +168,5 @@ public class Area {
             return subida;
 
     }
-
-
-
-
-
-
 
 }
