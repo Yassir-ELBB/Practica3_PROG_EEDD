@@ -4,10 +4,9 @@ import Ejercicio3.trampa;
 import java.util.Random;
 
 /**
- * Clase Personajes
- * En esta clase se usan los atributos de Sting nombre, pv (Puntos de Vida), atq (Puntos de Ataque), def (Puntos de Defensa), nivel (Puntos de Nivel)
+ * Clase Personajes donde se usan los atributos de Sting nombre, pv (Puntos de Vida), atq (Puntos de Ataque), def (Puntos de Defensa), nivel (Puntos de Nivel)
  * para la creación y definición de un personaje.
- * @author Yassir El Badri Benjelloun
+ * @author YassirElBadriBenjelloun
  * @version 1.0
  */
 
