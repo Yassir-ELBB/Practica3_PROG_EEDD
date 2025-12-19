@@ -12,11 +12,11 @@ import java.util.Random;
 
 
 public class Personaje {
-    private String nombre;
-    private int pv;
-    private int atq;
-    private int def;
-    private int nivel;
+    private String nombre; /** atributo de tipo String que almacena el nombre del personaje. */
+    private int pv; /** atributo de tipo int que almacena los puntos de vida del personaje. */
+    private int atq;  /** atributo de tipo int que almacena los puntos de ataque del personaje. */
+    private int def;  /** atributo de tipo int que almacena los puntos de defensa del personaje. */
+    private int nivel;  /** atributo de tipo int que almacena los puntos de nivel del personaje. */
 
     /**
      * Constructor por defecto que pone todos los valores a 0 o vacío
