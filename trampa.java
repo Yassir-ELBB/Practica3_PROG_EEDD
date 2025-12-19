@@ -10,9 +10,9 @@ import java.util.Random;
  */
 
 public class trampa {
-    private String categoria;
-    private int perjuicio;
-    private double fracaso;
+    private String categoria; /** Atributo de tipo String que almacena la categoriad de las trampas */
+    private int perjuicio; /** Atributo de tipo int que almacena la cantidad de prejuicio provocada por las trampas */
+    private double fracaso; /** Atributo de tipo double que almacena la probabilidad de fracaso de las tramoas */
 
     /**
      * Constructor por defecto que inicializa la categoria a vacia, perjuicio a 0 y fracaso a 0.
